@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://pgfo5l5qvodc"]
+
+[sub_resource type="SystemFont" id="SystemFont_4ddtj"]
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_e2f0r"]
+fallbacks = Array[Font]([SubResource("SystemFont_4ddtj")])
+subpixel_positioning = 0
+
+[resource]
+font = SubResource("SystemFont_e2f0r")
+font_size = 60
+font_color = Color(0, 0.619608, 0.623529, 1)
