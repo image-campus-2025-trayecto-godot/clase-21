@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bbg0esl80b26b"]
+
+[ext_resource type="Script" uid="uid://boek12xc1wwq5" path="res://addons/input-overlay/input-overlay-config.gd" id="1_07s87"]
+
+[resource]
+script = ExtResource("1_07s87")
+scale = 0.4

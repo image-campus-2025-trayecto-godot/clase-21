@@ -7,11 +7,13 @@ extends AnimationPlayer
 ## (al hacerse activa se hace visible).
 
 func _ready() -> void:
-	(get_parent() as CanvasItem).visibility_changed.connect(func():
-		if(get_parent().is_visible()):
+	on_visible_changed()
+	(get_parent() as CanvasItem).visibility_changed.connect(self.on_visible_changed)
+
+func on_visible_changed():
+	if(get_parent().is_visible()):
 			play("RESET")
 			play(autoplay)
 			seek(0)
-		else:
-			stop()
-	)
+	else:
+		stop()
