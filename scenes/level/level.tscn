@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmtkf8drl5j6"]
+
+[ext_resource type="Script" uid="uid://pdkk2xa6nm61" path="res://scenes/level/player.gd" id="1_h3e3j"]
+[ext_resource type="Texture2D" uid="uid://b5tw0gu0i625b" path="res://assets/GreyboxTextures/GreyboxTextures/greybox_blue_grid.png" id="2_i166f"]
+[ext_resource type="PackedScene" uid="uid://dqcgkdrx4yu5y" path="res://addons/input-overlay/overlay-widget/overlay-widget.tscn" id="2_nbgty"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nbgty"]
+sky_top_color = Color(0.37829614, 0.33368018, 0.85942197, 1)
+sky_horizon_color = Color(1, 0.35843518, 0.8519705, 1)
+sky_curve = 0.13518769
+ground_bottom_color = Color(0.11480638, 0.30095205, 0.21521029, 1)
+ground_horizon_color = Color(0.40441567, 0.20576957, 0.42226323, 1)
+ground_curve = 0.11313734
+
+[sub_resource type="Sky" id="Sky_i166f"]
+sky_material = SubResource("ProceduralSkyMaterial_nbgty")
+
+[sub_resource type="Environment" id="Environment_qkmgm"]
+background_mode = 2
+sky = SubResource("Sky_i166f")
+tonemap_mode = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nbgty"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbgty"]
+albedo_texture = ExtResource("2_i166f")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qkmgm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.46807614, -0.8309229, -0.30078575, -0.73881227, -0.554716, 0.38268355, -0.48483106, 0.04309917, -0.87354535, 1.7028494, 4.7683716e-07, -2.1137185)
+shadow_enabled = true
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1, -4.2204027, 0.025784016, -1.5871241)
+script = ExtResource("1_h3e3j")
+SPEED = 12.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0221256, 0)
+cone = true
+metadata/_edit_lock_ = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CharacterBody3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0006272, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0221256, 0)
+shape = SubResource("CylinderShape3D_nbgty")
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.280081, 4.686428, 7.782938)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.887474, -1.1072689, 0.60367775)
+material_overlay = SubResource("StandardMaterial3D_nbgty")
+use_collision = true
+size = Vector3(42.658264, 1, 25.23169)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.026962064, 0, -0.9996364, 0, 1, 0, 0.9996364, 0, 0.026962064, 1.1516361, 1.2963554, -3.2144136)
+use_collision = true
+size = Vector3(3.9022903, 3.5927124, 11.687256)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9713955, 1.0184642, -3.845335)
+use_collision = true
+size = Vector3(2.7342682, 1.0369263, 2.9527588)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.405121, 2.173627, -3.5008187)
+use_collision = true
+size = Vector3(2.7342682, 1.0369263, 2.9527588)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6557617, 10.891663, -13.337345)
+size = Vector3(41.0791, 22.783325, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.004642606, -0.99998933, 0, 0.99998933, 0.004642606, 4.6963463, -0.13883114, -1.6933794)
+operation = 2
+radius = 6.467285
+height = 5.2443943
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-0.14285347, 0, 0.9897438, 0, 1, 0, -0.9897438, 0, -0.14285347, 21.701225, 10.891663, -13.337345)
+size = Vector3(41.0791, 22.783325, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-0.14285347, 0, 0.9897438, 0, 1, 0, -0.9897438, 0, -0.14285347, -23.959602, 10.891663, -13.337345)
+size = Vector3(41.0791, 22.783325, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OverlayWidget" parent="CanvasLayer" instance=ExtResource("2_nbgty")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 732.0
+offset_bottom = 120.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
