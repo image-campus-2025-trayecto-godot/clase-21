@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbk47q5x02kfe"]
+
+[ext_resource type="PackedScene" uid="uid://cmtkf8drl5j6" path="res://scenes/level/level.tscn" id="1_ue6qg"]
+
+[node name="SplitScreen" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+size = Vector2i(576, 648)
+
+[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+size = Vector2i(576, 648)
+
+[node name="Camera3D2" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
+
+[node name="Level" parent="." instance=ExtResource("1_ue6qg")]

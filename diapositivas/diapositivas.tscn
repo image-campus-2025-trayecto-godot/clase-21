@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvd7nakwwre3f"]
+[gd_scene load_steps=18 format=3 uid="uid://dvd7nakwwre3f"]
 
 [ext_resource type="Script" uid="uid://dtoovey3km3b3" path="res://addons/slides/diapositivas.gd" id="1_rsqhl"]
 [ext_resource type="Texture2D" uid="uid://plqq7bqjwbib" path="res://addons/slides/imagenes/image-background.jpg" id="2_x2bli"]
@@ -9,36 +9,11 @@
 [ext_resource type="LabelSettings" uid="uid://ciklliuwfowi" path="res://addons/slides/resources/fecha_label_settings.tres" id="6_6ewpg"]
 [ext_resource type="Script" uid="uid://cjl8wre8g346n" path="res://addons/slides/utils/animation_player.gd" id="7_w1i3l"]
 [ext_resource type="LabelSettings" uid="uid://dt82lbtlp1h3k" path="res://addons/slides/resources/titulo_filmina_agenda_label_settings.tres" id="8_4sra1"]
-[ext_resource type="Texture2D" uid="uid://bhbe4r1iey3jf" path="res://diapositivas/imagenes/2da3d/frink_cuadrado.webp" id="9_g52pa"]
-[ext_resource type="Texture2D" uid="uid://b7y75o77fahvr" path="res://diapositivas/imagenes/2da3d/Captura de pantalla 2025-10-20 184624.png" id="10_qtdcv"]
-[ext_resource type="Texture2D" uid="uid://cb0aji2u4ulql" path="res://diapositivas/imagenes/2da3d/frink_cubo.png" id="11_ldt3k"]
-[ext_resource type="Texture2D" uid="uid://bgj6isqbv6qpu" path="res://diapositivas/imagenes/2da3d/Captura de pantalla 2025-10-20 184742.png" id="12_c8yio"]
-[ext_resource type="Texture2D" uid="uid://c8py106wua5od" path="res://diapositivas/imagenes/blockout.png" id="13_l4vhf"]
 
 [sub_resource type="Theme" id="Theme_l4vhf"]
 RichTextLabel/colors/default_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g52pa"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7tbg"]
-content_margin_left = 10.0
-content_margin_top = 0.0
-bg_color = Color(0, 0, 0, 0.862745)
-skew = Vector2(1, 0)
-expand_margin_left = 200.0
-expand_margin_right = 100.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="SystemFont" id="SystemFont_7cjgy"]
-font_names = PackedStringArray("Cooper", "Ravie", "Snap ITC")
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_fn8aw"]
-font = SubResource("SystemFont_7cjgy")
-font_size = 60
-shadow_size = 30
-shadow_color = Color(0.137255, 0.156863, 0.32549, 1)
-shadow_offset = Vector2(5, 5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y722n"]
 bg_color = Color(0.211765, 0.239216, 0.290196, 1)
@@ -112,11 +87,10 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme = SubResource("Theme_l4vhf")
 script = ExtResource("1_rsqhl")
-diapositiva_actual = 6
+diapositiva_actual = 0
 metadata/_edit_lock_ = true
 
 [node name="EjemploTitulo" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,8 +141,8 @@ offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = ExtResource("4_vpeoj")
-text = "Clase 18
-3D - Intro"
+text = "Clase 19
+3D - Cámaras y movimiento"
 label_settings = ExtResource("4_rxgjl")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -202,7 +176,7 @@ offset_left = -427.0
 offset_top = -91.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "20/10/2025"
+text = "22/10/2025"
 label_settings = ExtResource("6_6ewpg")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -253,440 +227,12 @@ label_settings = ExtResource("8_4sra1")
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
 bbcode_enabled = true
-text = "[font_size=45]- 2D a 3D
-- Movimiento [i]básico[/i] de un personaje en 3D.
-- Blockouts: prototipando niveles.
-- Ambiente.
-- Importando modelos 3D.
-[/font_size]"
-fit_content = true
-
-[node name="2D a 3D" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Fondo" type="TextureRect" parent="2D a 3D"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_x2bli")
-
-[node name="Titulo" type="Label" parent="2D a 3D"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x7tbg")
-text = "2D a 3D"
-label_settings = SubResource("LabelSettings_fn8aw")
-
-[node name="MarginContainer" type="MarginContainer" parent="2D a 3D"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Contenido" type="RichTextLabel" parent="2D a 3D/MarginContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]- Git, ¿Para qué?
-- [b]Actividad 1:[/b] Primer repositorio local.
-- Compartiendo el repo por internet.
-  - Github.
-- [b]Actividad 2:[/b] Subiendo mis cambios.
-- Forks, ramas
-- [b]Actividad 3:[/b] Contribuyendo al repo de alguien más
-- [b]Actividad 4:[/b] Trabajando en un repo en equipo
-- Trabajando con archivos grandes.
-- [b]Actividad 5:[/b] Configurando git lfs para un repo.
-[/font_size]"
-fit_content = true
-
-[node name="2D a 3D2" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Fondo" type="TextureRect" parent="2D a 3D2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_x2bli")
-
-[node name="Titulo" type="Label" parent="2D a 3D2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x7tbg")
-text = "2D a 3D"
-label_settings = SubResource("LabelSettings_fn8aw")
-
-[node name="MarginContainer" type="MarginContainer" parent="2D a 3D2"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Contenido" type="RichTextLabel" parent="2D a 3D2/MarginContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]- Git, ¿Para qué?
-- [b]Actividad 1:[/b] Primer repositorio local.
-- Compartiendo el repo por internet.
-  - Github.
-- [b]Actividad 2:[/b] Subiendo mis cambios.
-- Forks, ramas
-- [b]Actividad 3:[/b] Contribuyendo al repo de alguien más
-- [b]Actividad 4:[/b] Trabajando en un repo en equipo
-- Trabajando con archivos grandes.
-- [b]Actividad 5:[/b] Configurando git lfs para un repo.
-[/font_size]"
-fit_content = true
-
-[node name="FrinkCuadrado" type="Sprite2D" parent="2D a 3D2"]
-position = Vector2(409, 193)
-scale = Vector2(0.76385224, 0.76385224)
-texture = ExtResource("9_g52pa")
-
-[node name="CapturaDePantalla20251020184624" type="Sprite2D" parent="2D a 3D2"]
-position = Vector2(485, 703)
-texture = ExtResource("10_qtdcv")
-
-[node name="2D a 3D3" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Fondo" type="TextureRect" parent="2D a 3D3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 0
-texture = ExtResource("2_x2bli")
-
-[node name="MarginContainer" type="MarginContainer" parent="2D a 3D3"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Contenido" type="RichTextLabel" parent="2D a 3D3/MarginContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]- Git, ¿Para qué?
-- [b]Actividad 1:[/b] Primer repositorio local.
-- Compartiendo el repo por internet.
-  - Github.
-- [b]Actividad 2:[/b] Subiendo mis cambios.
-- Forks, ramas
-- [b]Actividad 3:[/b] Contribuyendo al repo de alguien más
-- [b]Actividad 4:[/b] Trabajando en un repo en equipo
-- Trabajando con archivos grandes.
-- [b]Actividad 5:[/b] Configurando git lfs para un repo.
-[/font_size]"
-fit_content = true
-
-[node name="FrinkCuadrado" type="Sprite2D" parent="2D a 3D3"]
-position = Vector2(409, 193)
-scale = Vector2(0.76385224, 0.76385224)
-texture = ExtResource("9_g52pa")
-
-[node name="CapturaDePantalla20251020184624" type="Sprite2D" parent="2D a 3D3"]
-position = Vector2(485, 703)
-texture = ExtResource("10_qtdcv")
-
-[node name="FrinkCubo" type="Sprite2D" parent="2D a 3D3"]
-position = Vector2(1430.9746, 191.75)
-scale = Vector2(0.936923, 0.9369231)
-texture = ExtResource("11_ldt3k")
-
-[node name="CapturaDePantalla20251020184742" type="Sprite2D" parent="2D a 3D3"]
-position = Vector2(1421, 715)
-texture = ExtResource("12_c8yio")
-
-[node name="Titulo" type="Label" parent="2D a 3D3"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x7tbg")
-text = "2D a 3D"
-label_settings = SubResource("LabelSettings_fn8aw")
-
-[node name="Nuestro primer personaje 3d" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Fondo" type="TextureRect" parent="Nuestro primer personaje 3d"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_x2bli")
-
-[node name="Titulo" type="Label" parent="Nuestro primer personaje 3d"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x7tbg")
-text = "Nuestro primer personaje 3d"
-label_settings = SubResource("LabelSettings_fn8aw")
-
-[node name="MarginContainer" type="MarginContainer" parent="Nuestro primer personaje 3d"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Contenido" type="RichTextLabel" parent="Nuestro primer personaje 3d/MarginContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]- Git, ¿Para qué?
-- [b]Actividad 1:[/b] Primer repositorio local.
-- Compartiendo el repo por internet.
-  - Github.
-- [b]Actividad 2:[/b] Subiendo mis cambios.
-- Forks, ramas
-- [b]Actividad 3:[/b] Contribuyendo al repo de alguien más
-- [b]Actividad 4:[/b] Trabajando en un repo en equipo
-- Trabajando con archivos grandes.
-- [b]Actividad 5:[/b] Configurando git lfs para un repo.
-[/font_size]"
-fit_content = true
-
-[node name="Blockouts" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Fondo" type="TextureRect" parent="Blockouts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_x2bli")
-
-[node name="Titulo" type="Label" parent="Blockouts"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x7tbg")
-text = "Blockouts / Graybox"
-label_settings = SubResource("LabelSettings_fn8aw")
-
-[node name="MarginContainer" type="MarginContainer" parent="Blockouts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 594.0
-offset_top = 332.0
-offset_right = -88.0
-offset_bottom = -270.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Contenido" type="RichTextLabel" parent="Blockouts/MarginContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]
-[/font_size]"
-fit_content = true
-
-[node name="Blockout" type="Sprite2D" parent="Blockouts"]
-position = Vector2(938, 528)
-scale = Vector2(0.60355985, 0.60355985)
-texture = ExtResource("13_l4vhf")
-
-[node name="ImportandoModelos3D" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Fondo" type="TextureRect" parent="ImportandoModelos3D"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_x2bli")
-
-[node name="Titulo" type="Label" parent="ImportandoModelos3D"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x7tbg")
-text = "Importando modelos 3d"
-label_settings = SubResource("LabelSettings_fn8aw")
-
-[node name="MarginContainer" type="MarginContainer" parent="ImportandoModelos3D"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 594.0
-offset_top = 332.0
-offset_right = -88.0
-offset_bottom = -270.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Contenido" type="RichTextLabel" parent="ImportandoModelos3D/MarginContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]
+text = "[font_size=45]- Repaso
+  - ¿Puede un material reflejar otros elementos del juego?
+  - Ejemplo de mapa metálico, rugosidad y de normales
+- Cámara libre
+- Cámara que sigue al personaje
+- Movimiento del personaje respecto de a donde apunta la cámara
 [/font_size]"
 fit_content = true
 
