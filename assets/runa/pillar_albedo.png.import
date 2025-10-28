@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dem2gwlqfi58d"
-path.s3tc="res://.godot/imported/pillar_albedo.png-6b9aee2fa632aa80dfb06c53d01da7a9.s3tc.ctex"
+path.s3tc="res://.godot/imported/pillar_Albedo.png-529cb27996ab071443a762e9e0777bd1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/runa/pillar_albedo.png"
-dest_files=["res://.godot/imported/pillar_albedo.png-6b9aee2fa632aa80dfb06c53d01da7a9.s3tc.ctex"]
+source_file="res://assets/runa/pillar_Albedo.png"
+dest_files=["res://.godot/imported/pillar_Albedo.png-529cb27996ab071443a762e9e0777bd1.s3tc.ctex"]
 
 [params]
 

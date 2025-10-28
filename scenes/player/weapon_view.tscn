@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmpqbxl153lmv"]
+
+[ext_resource type="PackedScene" uid="uid://dkuy060ytkcwq" path="res://assets/kenney_blaster-kit_2.1/Models/GLB format/blaster-g.glb" id="1_a1g5l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nbgty"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.4907779, 3.7397593e-05, 0.4046976, 1)
+sky_curve = 0.13518769
+ground_bottom_color = Color(0.11480638, 0.30095205, 0.21521029, 1)
+ground_horizon_color = Color(0.40441567, 0.20576957, 0.42226323, 1)
+ground_curve = 0.11313734
+
+[sub_resource type="Sky" id="Sky_i166f"]
+sky_material = SubResource("ProceduralSkyMaterial_nbgty")
+
+[sub_resource type="Environment" id="Environment_qkmgm"]
+background_mode = 2
+sky = SubResource("Sky_i166f")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="blaster-g3" parent="Camera3D" instance=ExtResource("1_a1g5l")]
+transform = Transform3D(0.9814864, 0.09933713, 0.163758, -0.06683937, 0.9788812, -0.19319545, -0.17949098, 0.17867325, 0.96739805, 0.27987155, -0.32693464, -0.5814546)
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qkmgm")

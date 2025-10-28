@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtafdaw454g5q"
-path.s3tc="res://.godot/imported/pillar_normal.png-90ce723e9445444818190c5739973796.s3tc.ctex"
+path.s3tc="res://.godot/imported/pillar_Normal.png-e6b51de280b1c3d08e38c970669725aa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/runa/pillar_normal.png"
-dest_files=["res://.godot/imported/pillar_normal.png-90ce723e9445444818190c5739973796.s3tc.ctex"]
+source_file="res://assets/runa/pillar_Normal.png"
+dest_files=["res://.godot/imported/pillar_Normal.png-e6b51de280b1c3d08e38c970669725aa.s3tc.ctex"]
 
 [params]
 

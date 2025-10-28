@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnwc6idbd5no6"]
+
+[ext_resource type="PackedScene" uid="uid://bnmthvxk0wrq2" path="res://assets/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="1_g0twl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0twl"]
+height = 0.47810364
+radius = 0.25195313
+
+[node name="Barrel" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2147483654
+mass = 0.5
+can_sleep = false
+continuous_cd = true
+
+[node name="barrel2" parent="." instance=ExtResource("1_g0twl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24614716, 0)
+shape = SubResource("CylinderShape3D_g0twl")

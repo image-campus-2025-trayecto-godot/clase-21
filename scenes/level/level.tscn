@@ -39,8 +39,11 @@ viewport_path = NodePath("SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_hnne4")
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("player", "free_camera", "player_camera")]
 script = ExtResource("1_hnne4")
+player = NodePath("CharacterBody3D")
+free_camera = NodePath("FreeCamera")
+player_camera = NodePath("CameraPivot/SpringArm3D/Camera3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qkmgm")
@@ -56,6 +59,7 @@ light_energy = 10.0
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("5_wcngd")]
 transform = Transform3D(-0.9202115, 0, -0.3914219, 0, 1, 0, 0.39142203, 0, -0.9202113, -4.2204027, 0.025784016, -19.760017)
+JUMP_SPEED = 8.0
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7498636, 0)

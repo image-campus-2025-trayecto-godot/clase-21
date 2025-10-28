@@ -13,7 +13,8 @@
 [sub_resource type="Theme" id="Theme_l4vhf"]
 RichTextLabel/colors/default_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g52pa"]
+[sub_resource type="LabelSettings" id="LabelSettings_dftkn"]
+font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y722n"]
 bg_color = Color(0.211765, 0.239216, 0.290196, 1)
@@ -141,8 +142,8 @@ offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = ExtResource("4_vpeoj")
-text = "Clase 19
-3D - Cámaras y movimiento"
+text = "Clase 20
+3D - Cámara primera persona"
 label_settings = ExtResource("4_rxgjl")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -176,7 +177,7 @@ offset_left = -427.0
 offset_top = -91.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "22/10/2025"
+text = "27/10/2025"
 label_settings = ExtResource("6_6ewpg")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -223,18 +224,14 @@ layout_mode = 2
 text = "Agenda"
 label_settings = ExtResource("8_4sra1")
 
-[node name="Agenda" type="RichTextLabel" parent="Agenda/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Agenda/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g52pa")
-bbcode_enabled = true
-text = "[font_size=45]- Repaso
-  - ¿Puede un material reflejar otros elementos del juego?
-  - Ejemplo de mapa metálico, rugosidad y de normales
-- Cámara libre
-- Cámara que sigue al personaje
-- Movimiento del personaje respecto de a donde apunta la cámara
-[/font_size]"
-fit_content = true
+text = "- Cámara primera persona
+  - Movimiento
+  - Mira
+  - ¿Dónde va el arma?
+- Disparando a enemigos"
+label_settings = SubResource("LabelSettings_dftkn")
 
 [node name="Preguntas" type="Control" parent="."]
 visible = false

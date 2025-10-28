@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwb8kiif8akov"]
+
+[ext_resource type="Script" uid="uid://bf2jv4lxnkhav" path="res://scenes/player/bullets/bullet_rigid_body.gd" id="1_pdlxt"]
+[ext_resource type="PackedScene" uid="uid://cpktplap4bct3" path="res://assets/kenney_blaster-kit_2.1/Models/GLB format/bullet-foam-tip-thick.glb" id="2_wrwlq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o1a5k"]
+radius = 0.048680972
+
+[node name="BulletRigidBody" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 2147483650
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 20.0
+can_sleep = false
+continuous_cd = true
+script = ExtResource("1_pdlxt")
+
+[node name="bullet-foam-tip-thick2" parent="." instance=ExtResource("2_wrwlq")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016234562, 0)
+shape = SubResource("SphereShape3D_o1a5k")
