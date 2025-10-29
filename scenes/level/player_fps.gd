@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+const BULLET_HOLE_DECAL = preload("uid://bt2tprq6f1rre")
 const BULLET_RIGID_BODY = preload("uid://bwb8kiif8akov")
 @export var bullet_impulse: float = 100.0
 enum ShootMode {
@@ -12,6 +13,7 @@ enum ShootMode {
 @export var SPEED: float = 5.0
 @export var SPRINT_SPEED: float = 8.0
 @export var JUMP_VELOCITY: float = 4.5
+@export var max_recoil_angle: float = PI / 10
 @export_range(0.01, 1.0, 0.01) var mouse_sensitivity: float = 0.15
 var _mouse_motion: Vector2
 var movement_enabled: bool = true
@@ -22,7 +24,6 @@ var movement_enabled: bool = true
 @onready var camera_3d_original_fov: float = camera_3d.fov
 @onready var camera_pivot: Node3D = %CameraPivot
 @onready var weapon_animation_player: AnimationPlayer = $"CameraPivot/PlayerCamera/blaster-g2/AnimationPlayer"
-
 @onready var camera_pivot_target_rotation_offset: Vector2
 
 # TODO: disparo automatico / semi-automatico
@@ -93,7 +94,11 @@ func _physics_process(delta: float) -> void:
 							-hit_scan_ray_cast.global_basis.z * shoot_impulse,
 							hit_scan_ray_cast.get_collision_point() - collider.global_position
 							)
-		var max_recoil_angle = PI / 5
+					var bullet_hole_decal: Node3D = BULLET_HOLE_DECAL.instantiate()
+					collider.add_child(bullet_hole_decal)
+					bullet_hole_decal.global_position = hit_scan_ray_cast.get_collision_point()
+					bullet_hole_decal.look_at(hit_scan_ray_cast.get_collision_point() + hit_scan_ray_cast.get_collision_normal())
+					bullet_hole_decal.rotate_object_local(Vector3.RIGHT, PI / 2)
 		camera_pivot_target_rotation_offset = Vector2(randf_range(- max_recoil_angle, max_recoil_angle), randf_range(- max_recoil_angle, max_recoil_angle))
 	camera_pivot_target_rotation_offset = camera_pivot_target_rotation_offset.lerp(Vector2.ZERO, 1 - pow(0.001, delta))
 	

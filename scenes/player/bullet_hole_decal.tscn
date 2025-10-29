@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt2tprq6f1rre"]
+
+[ext_resource type="Texture2D" uid="uid://bnsu2l0b2vi17" path="res://assets/bullet_holes/bullet_hole_0.png" id="1_jkwnd"]
+
+[sub_resource type="GDScript" id="GDScript_jkwnd"]
+script/source = "extends Decal
+
+func _ready():
+	Decals.new_decal_created(self)
+"
+
+[node name="BulletHoleDecal" type="Decal"]
+size = Vector3(0.3, 0.2, 0.3)
+texture_albedo = ExtResource("1_jkwnd")
+script = SubResource("GDScript_jkwnd")
