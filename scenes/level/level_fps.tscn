@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d32go3mt62d31"]
+[gd_scene load_steps=18 format=3 uid="uid://d32go3mt62d31"]
 
 [ext_resource type="Texture2D" uid="uid://b5tw0gu0i625b" path="res://assets/GreyboxTextures/GreyboxTextures/greybox_blue_grid.png" id="1_bcixf"]
 [ext_resource type="Script" uid="uid://b7svhf7f5emr1" path="res://scenes/level/level.gd" id="1_scyvi"]
@@ -37,11 +37,91 @@ uv1_triplanar = true
 radius = 0.2680664
 height = 1.434082
 
+[sub_resource type="Animation" id="Animation_jwyb7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/PlayerCamera:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/PlayerCamera:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.02177769, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraPivot/PlayerCamera:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ennbq"]
+resource_name = "walk_camera_movement"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/PlayerCamera:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0, 0, -0.033698156, 0, 0, 0, 0, -0.028352138, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/PlayerCamera:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(0.02177769, -0.25, 0, 0.16666667, 0.010679863, -0.1515689, -0.033698156, 0.028891101, 0, 0, 0, -0.028352138, 0.02198079, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.5000334)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraPivot/PlayerCamera:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.13333334, 0.010601501, -0.06990286, -0.033698156, 0.011650478, 0, 0, 0, -0.028352138, 0.007400204, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.5000334)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1a5k"]
+_data = {
+&"RESET": SubResource("Animation_jwyb7"),
+&"walk_camera_movement": SubResource("Animation_ennbq")
+}
+
 [node name="Level" type="Node3D" node_paths=PackedStringArray("player", "free_camera", "player_camera")]
 script = ExtResource("1_scyvi")
 player = NodePath("PlayerFPS")
 free_camera = NodePath("FreeCamera")
-player_camera = NodePath("PlayerFPS/Camera3D")
+player_camera = NodePath("PlayerFPS/CameraPivot/PlayerCamera")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qkmgm")
@@ -64,23 +144,27 @@ visible = false
 script = ExtResource("4_wx0nk")
 
 [node name="PlayerFPS" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392731, 0)
+transform = Transform3D(0.999909, 0.0005169482, -0.013481079, -0.00080292136, 0.9997746, -0.021216158, 0.013467072, 0.021225054, 0.999684, 0, 0.392731, 0)
 collision_mask = 2147483650
 script = ExtResource("5_scyvi")
 bullet_impulse = 500.0
 
-[node name="Camera3D" type="Camera3D" parent="PlayerFPS"]
+[node name="CameraPivot" type="Node3D" parent="PlayerFPS"]
+unique_name_in_owner = true
+
+[node name="PlayerCamera" type="Camera3D" parent="PlayerFPS/CameraPivot"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9274321, -0.37399158, 0, 0.37399158, 0.9274321, 0, 0.02177769, 0)
 current = true
 
-[node name="blaster-g2" parent="PlayerFPS/Camera3D" instance=ExtResource("8_45t5u")]
+[node name="blaster-g2" parent="PlayerFPS/CameraPivot/PlayerCamera" instance=ExtResource("8_45t5u")]
 transform = Transform3D(0.9371041, 0.09933714, 0.33461636, -0.03164859, 0.9788812, -0.20196621, -0.3476123, 0.17867327, 0.9204573, 0.14431114, -0.2827381, -0.34143603)
 
-[node name="BulletSpawnPoint" type="Marker3D" parent="PlayerFPS/Camera3D/blaster-g2"]
+[node name="BulletSpawnPoint" type="Marker3D" parent="PlayerFPS/CameraPivot/PlayerCamera/blaster-g2"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4703484e-08, 0.10486241, -0.3482695)
 
-[node name="HitScanRayCast" type="RayCast3D" parent="PlayerFPS/Camera3D"]
+[node name="HitScanRayCast" type="RayCast3D" parent="PlayerFPS/CameraPivot/PlayerCamera"]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -20)
 collision_mask = 2
@@ -88,6 +172,11 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerFPS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28295898, 0)
 shape = SubResource("CapsuleShape3D_knrqb")
+
+[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="PlayerFPS"]
+libraries = {
+&"": SubResource("AnimationLibrary_o1a5k")
+}
 
 [node name="Props" type="Node3D" parent="."]
 
