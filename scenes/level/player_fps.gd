@@ -21,6 +21,7 @@ var movement_enabled: bool = true
 @onready var camera_animation_player: AnimationPlayer = $CameraAnimationPlayer
 @onready var camera_3d_original_fov: float = camera_3d.fov
 @onready var camera_pivot: Node3D = %CameraPivot
+@onready var weapon_animation_player: AnimationPlayer = $"CameraPivot/PlayerCamera/blaster-g2/AnimationPlayer"
 
 @onready var camera_pivot_target_rotation_offset: Vector2
 
@@ -65,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.is_zero_approx():
 		camera_animation_player.stop()
-	else:
+	elif not(camera_animation_player.is_playing() and camera_animation_player.current_animation == "walk_camera_movement"):
 		camera_animation_player.play("walk_camera_movement")
 	
 	#var fov_acceleration: float = 15.0
@@ -75,6 +76,7 @@ func _physics_process(delta: float) -> void:
 		camera_3d.fov = lerp(camera_3d.fov, camera_3d_original_fov, 1 - pow(0.01, delta))
 	
 	if Input.is_action_just_pressed("shoot"):
+		weapon_animation_player.play("shoot")
 		match shoot_mode:
 			ShootMode.RIGID_BODY:
 				var bullet: RigidBody3D = BULLET_RIGID_BODY.instantiate()

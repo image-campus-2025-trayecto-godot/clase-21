@@ -143,7 +143,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = ExtResource("4_vpeoj")
 text = "Clase 20
-3D - Cámara primera persona"
+3D - Cámara primera persona - pulido"
 label_settings = ExtResource("4_rxgjl")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -177,7 +177,7 @@ offset_left = -427.0
 offset_top = -91.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "27/10/2025"
+text = "29/10/2025"
 label_settings = ExtResource("6_6ewpg")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -226,11 +226,12 @@ label_settings = ExtResource("8_4sra1")
 
 [node name="Label" type="Label" parent="Agenda/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "- Cámara primera persona
-  - Movimiento
-  - Mira
-  - ¿Dónde va el arma?
-- Disparando a enemigos"
+text = "- Efecto de disparo
+  - Muzzle flash
+  - Movimiento del arma
+- Agujeros de las balas
+- Camera shake
+- Automático / semiautomático"
 label_settings = SubResource("LabelSettings_dftkn")
 
 [node name="Preguntas" type="Control" parent="."]
