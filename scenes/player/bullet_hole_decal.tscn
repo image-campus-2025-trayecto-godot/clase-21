@@ -7,9 +7,19 @@ script/source = "extends Decal
 
 func _ready():
 	Decals.new_decal_created(self)
+
+func setup_visibility(parent_node: Node3D):
+	if parent_node is VisualInstance3D:
+		cull_mask = parent_node.layers
+	#else:
+		#var visual_instances = parent_node.find_children(\"\", \"VisualInstance3D\")
+		#if not visual_instances.is_empty():
+			#cull_mask = visual_instances.front().layers
+	elif parent_node.has_method(\"visibility_layers\"):
+		cull_mask = parent_node.visibility_layers()
 "
 
 [node name="BulletHoleDecal" type="Decal"]
-size = Vector3(0.3, 0.2, 0.3)
+size = Vector3(0.3, 0.05, 0.3)
 texture_albedo = ExtResource("1_jkwnd")
 script = SubResource("GDScript_jkwnd")

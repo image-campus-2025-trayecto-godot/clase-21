@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d32go3mt62d31"]
+[gd_scene load_steps=30 format=3 uid="uid://d32go3mt62d31"]
 
 [ext_resource type="Texture2D" uid="uid://b5tw0gu0i625b" path="res://assets/GreyboxTextures/GreyboxTextures/greybox_blue_grid.png" id="1_bcixf"]
 [ext_resource type="Script" uid="uid://b7svhf7f5emr1" path="res://scenes/level/level.gd" id="1_scyvi"]
@@ -30,6 +30,67 @@ tonemap_mode = 2
 albedo_texture = ExtResource("1_bcixf")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
+
+[sub_resource type="Animation" id="Animation_c67ir"]
+resource_name = "toggle_doom_mode"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.26023585, -1.8626451e-09, 0.029973414)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.2617296, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4dow1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dow1"]
+_data = {
+&"RESET": SubResource("Animation_4dow1"),
+&"toggle_doom_mode": SubResource("Animation_c67ir")
+}
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ennbq"]
 angle_min = -720.0
@@ -67,7 +128,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%BulletSpawnPoint/OmniLight3D:visible")
+tracks/0/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2/BulletSpawnPoint/OmniLight3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +140,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%PlayerCamera/blaster-g2:position")
+tracks/1/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,6 +149,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0.14431114, -0.2827381, -0.34143603)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.20336512, 0.34867942, -0.032320138)]
+}
 
 [sub_resource type="Animation" id="Animation_o1a5k"]
 resource_name = "shoot"
@@ -95,7 +168,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%BulletSpawnPoint/OmniLight3D:visible")
+tracks/0/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2/BulletSpawnPoint/OmniLight3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -107,7 +180,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%BulletSpawnPoint/GPUParticles3D")
+tracks/1/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2/BulletSpawnPoint/GPUParticles3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -121,7 +194,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%PlayerCamera/blaster-g2:position")
+tracks/2/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -131,10 +204,39 @@ tracks/2/keys = {
 "values": [Vector3(0.1587578, -0.29145774, -0.3016964), Vector3(0.14431114, -0.2827381, -0.34143603)]
 }
 
+[sub_resource type="Animation" id="Animation_qox0j"]
+resource_name = "toggle_weapon"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.17000002, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.14431114, -0.2827381, -0.34143603), Vector3(0.104722425, -0.18673313, -0.45690122), Vector3(0.14431114, -0.2827381, -0.34143603)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/PlayerCamera/WeaponPivot/blaster-g2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17000002, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.20336512, 0.34867942, -0.032320138), Vector3(0.39207098, 0.34211627, -0.034253992), Vector3(0.20336512, 0.34867942, -0.032320138)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qox0j"]
 _data = {
 &"RESET": SubResource("Animation_fhfkp"),
-&"shoot": SubResource("Animation_o1a5k")
+&"shoot": SubResource("Animation_o1a5k"),
+&"toggle_weapon": SubResource("Animation_qox0j")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_knrqb"]
@@ -241,6 +343,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4923668, -1.1072689, -5.14
 use_collision = true
 size = Vector3(11.86805, 1, 36.731598)
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4923668, 3.3431525, -5.1462765)
+use_collision = true
+size = Vector3(11.86805, 1, 36.731598)
+
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 0.69991267, -0.7142284, 0, 0.7142284, 0.69991267, -4.22453, -1.1072689, -23.034872)
 use_collision = true
@@ -275,7 +382,9 @@ script = ExtResource("4_wx0nk")
 transform = Transform3D(0.999909, 0.0005169482, -0.013481079, -0.00080292136, 0.9997746, -0.021216158, 0.013467072, 0.021225054, 0.999684, 0, 0.392731, 0)
 collision_mask = 2147483650
 script = ExtResource("5_scyvi")
+weapon_mode = 0
 bullet_impulse = 500.0
+fire_rate = 50.0
 shoot_impulse = 2.0
 
 [node name="CameraPivot" type="Node3D" parent="PlayerFPS"]
@@ -286,20 +395,27 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9274321, -0.37399158, 0, 0.37399158, 0.9274321, 0, 0.02177769, 0)
 current = true
 
-[node name="blaster-g2" parent="PlayerFPS/CameraPivot/PlayerCamera" instance=ExtResource("8_45t5u")]
-transform = Transform3D(0.9371041, 0.09933714, 0.33461636, -0.03164859, 0.9788812, -0.20196621, -0.3476123, 0.17867327, 0.9204573, 0.14431114, -0.2827381, -0.34143603)
+[node name="WeaponPivot" type="Node3D" parent="PlayerFPS/CameraPivot/PlayerCamera"]
 
-[node name="BulletSpawnPoint" type="Marker3D" parent="PlayerFPS/CameraPivot/PlayerCamera/blaster-g2"]
+[node name="WeaponPivotAnimationPlayer" type="AnimationPlayer" parent="PlayerFPS/CameraPivot/PlayerCamera/WeaponPivot"]
+libraries = {
+&"": SubResource("AnimationLibrary_4dow1")
+}
+
+[node name="blaster-g2" parent="PlayerFPS/CameraPivot/PlayerCamera/WeaponPivot" instance=ExtResource("8_45t5u")]
+transform = Transform3D(0.937104, 0.09933713, 0.33461627, -0.031648587, 0.9788811, -0.20196624, -0.34761223, 0.17867327, 0.92045724, 0.14431114, -0.2827381, -0.34143603)
+
+[node name="BulletSpawnPoint" type="Marker3D" parent="PlayerFPS/CameraPivot/PlayerCamera/WeaponPivot/blaster-g2"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4703484e-08, 0.10486241, -0.3482695)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="PlayerFPS/CameraPivot/PlayerCamera/blaster-g2/BulletSpawnPoint"]
+[node name="OmniLight3D" type="OmniLight3D" parent="PlayerFPS/CameraPivot/PlayerCamera/WeaponPivot/blaster-g2/BulletSpawnPoint"]
 visible = false
 light_color = Color(1, 1, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="PlayerFPS/CameraPivot/PlayerCamera/blaster-g2/BulletSpawnPoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01566903, 0.0006508033, -0.008583532)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="PlayerFPS/CameraPivot/PlayerCamera/WeaponPivot/blaster-g2/BulletSpawnPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005814921, 0.00065080344, -0.008583532)
 emitting = false
 lifetime = 0.05
 one_shot = true
@@ -308,8 +424,8 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ennbq")
 draw_pass_1 = SubResource("QuadMesh_o1a5k")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerFPS/CameraPivot/PlayerCamera/blaster-g2"]
-root_node = NodePath("../../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerFPS/CameraPivot/PlayerCamera/WeaponPivot/blaster-g2"]
+root_node = NodePath("../../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_qox0j")
 }
